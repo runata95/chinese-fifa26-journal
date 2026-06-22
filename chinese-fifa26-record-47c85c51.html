@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 知识索引 | chinese-fifa26.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #fafafa;
+      color: #1e1e2a;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 窄正文宽度 + 适度留白 */
+    .content-block {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 540px) {
+      .content-block {
+        padding: 1.8rem 1.2rem;
+        border-radius: 14px;
+      }
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 510;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+      color: #14141f;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #5c5c6e;
+      margin-bottom: 1.8rem;
+      font-weight: 380;
+      border-left: 3px solid #d0d0dc;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 480;
+      margin: 1.8rem 0 0.8rem;
+      color: #1e1e2a;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 470;
+      margin: 1.4rem 0 0.4rem;
+      color: #2c2c3a;
+    }
+
+    p {
+      margin-bottom: 0.9rem;
+    }
+
+    a {
+      color: #1f3d7a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #bcc8e0;
+      transition: text-decoration-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      text-decoration-color: #1f3d7a;
+      color: #0a2540;
+    }
+
+    /* 目录卡片网格 */
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    @media (max-width: 420px) {
+      .index-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .index-item {
+      background: #f5f5f8;
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #edecee;
+      transition: background 0.2s, border-color 0.15s;
+    }
+
+    .index-item:hover {
+      background: #eeeef2;
+      border-color: #d1d0d8;
+    }
+
+    .index-item .label {
+      font-weight: 460;
+      font-size: 0.9rem;
+      color: #30304a;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .index-item .label span {
+      background: #e2e2ea;
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 12px;
+      color: #3f3f55;
+    }
+
+    .index-item .desc {
+      font-size: 0.9rem;
+      color: #54546a;
+      line-height: 1.5;
+    }
+
+    /* 提示区 / 说明区 */
+    .note-box {
+      background: #f3f4fa;
+      border-left: 4px solid #9aa6c5;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      margin: 1.6rem 0;
+    }
+
+    .note-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .small-meta {
+      font-size: 0.85rem;
+      color: #6c6c82;
+      margin-top: 0.6rem;
+    }
+
+    /* faq 摘要 */
+    .faq-teaser {
+      margin: 1.4rem 0 0.2rem;
+    }
+
+    .faq-q {
+      font-weight: 470;
+      margin-top: 0.8rem;
+      margin-bottom: 0.2rem;
+      color: #21212e;
+    }
+
+    .faq-a {
+      color: #3f3f55;
+      margin-left: 0.1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3e3eb;
+      margin: 2rem 0 1rem;
+      width: 40px;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      font-size: 0.85rem;
+      color: #6f6f84;
+      text-align: center;
+      margin-top: 1.2rem;
+      padding: 0.2rem 0;
+    }
+
+    .inline-code {
+      background: #edeef2;
+      padding: 0.05rem 0.3rem;
+      border-radius: 6px;
+      font-size: 0.85em;
+      color: #2c2c3a;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 380px) {
+      h1 {
+        font-size: 1.9rem;
+      }
+      .content-block {
+        padding: 1.4rem 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero + 说明区 -->
+  <div class="content-block">
+    <h1>世界杯 · 资料索引</h1>
+    <div class="subhead">chinese-fifa26 知识库 · 稳定入口</div>
+    <p>这里整理了一份围绕<a href="https://chinese-fifa26.com">世界杯</a>的内容目录，偏向基础信息、赛事沿革与可查证的知识点。整个页面只做引导与说明，不做实时数据展示。你可以将它看作一个偏静态的文档入口，适合快速定位感兴趣的板块。</p>
+    <div class="note-box">
+      <p><strong>关于本入口</strong> · 页面不追踪任何用户行为，也不嵌入外部脚本。所有分类卡片、提示与问答摘要均来自公开资料与常识整理，并非官方声明。</p>
+    </div>
+  </div>
+
+  <!-- 目录感布局：卡片区 -->
+  <div class="content-block">
+    <h2>▎内容分类</h2>
+    <p style="margin-bottom: 0.2rem;">以下卡片指向主站的不同知识板块，通过 <a href="https://chinese-fifa26.com">世界杯</a> 可以访问完整列表。</p>
+    <div class="index-grid">
+      <div class="index-item">
+        <div class="label">🏆 历届概要 <span>基础</span></div>
+        <div class="desc">1930–2026 举办国、冠军、决赛比分及经典比赛简述。</div>
+      </div>
+      <div class="index-item">
+        <div class="label">📋 规则演变 <span>沿革</span></div>
+        <div class="desc">越位、换人、红黄牌、加时赛等规则的主要变化节点。</div>
+      </div>
+      <div class="index-item">
+        <div class="label">🌍 参赛队数据库 <span>名录</span></div>
+        <div class="desc">按大洲与年份筛选，包含历届参赛球队、首秀与最佳成绩。</div>
+      </div>
+      <div class="index-item">
+        <div class="label">🏟️ 场馆与城市 <span>地点</span></div>
+        <div class="desc">每届主办城市、体育场容量与举办比赛场次概况。</div>
+      </div>
+    </div>
+    <p class="small-meta">卡片内容仅为示例，详细条目请至主站查阅。</p>
+  </div>
+
+  <!-- 提示区 + 相关信息区 -->
+  <div class="content-block">
+    <h2>▎使用提示</h2>
+    <p>浏览时建议从<a href="https://chinese-fifa26.com">世界杯</a>总索引出发。多数页面保持窄正文排版，适合阅读。</p>
+    <ul style="margin: 0.6rem 0 1rem 1.4rem; color: #2c2c3a; line-height: 1.8;">
+      <li>所有资料均标注参考来源（FIFA 官方报告、历史数据库、学术文献）。</li>
+      <li>部分冷门赛事数据可能存在出入，页面会注明“待核实”。</li>
+      <li>站点无广告、无付费内容，也不收集任何个人信息。</li>
+    </ul>
+
+    <h3>相关信息</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; margin: 0.5rem 0 0.2rem;">
+      <span style="background: #e9e9f0; padding: 0.2rem 0.8rem; border-radius: 16px; font-size: 0.85rem;">📅 下一次世界杯 · 2026</span>
+      <span style="background: #e9e9f0; padding: 0.2rem 0.8rem; border-radius: 16px; font-size: 0.85rem;">🏅 夺冠次数 · 巴西5次</span>
+      <span style="background: #e9e9f0; padding: 0.2rem 0.8rem; border-radius: 16px; font-size: 0.85rem;">🧮 参赛球队 · 48支 (2026)</span>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区 -->
+  <div class="content-block">
+    <h2>▎常见疑问摘要</h2>
+    <div class="faq-teaser">
+      <div class="faq-q">❓ 为什么叫 FIFA 世界杯？</div>
+      <div class="faq-a">国际足联（FIFA）于1928年决定组织一项国际锦标赛，最初名为“世界足球锦标赛”，后改为“世界杯”。<a href="https://chinese-fifa26.com">世界杯</a>名称自1950年起正式固定。</div>
+    </div>
+    <div class="faq-teaser">
+      <div class="faq-q">❓ 哪一届世界杯观众最多？</div>
+      <div class="faq-a">1994年美国世界杯总入场人数约360万，场均约6.9万人，是目前观众总数最高的一届。<a href="https://chinese-fifa26.com">世界杯</a>页面中有更详细的数据对比。</div>
+    </div>
+    <div class="faq-teaser">
+      <div class="faq-q">❓ 资料多久更新一次？</div>
+      <div class="faq-a">基础数据（历届成绩、场馆等）基本固定，只在有可靠新出处时修订。动态信息（如预选赛进展）视情况补充。</div>
+    </div>
+    <p class="small-meta" style="margin-top: 0.8rem;">以上仅为摘要，完整 FAQ 见主站对应板块。</p>
+  </div>
+
+  <!-- 收尾说明 -->
+  <div class="content-block" style="background: #f9f9fc; box-shadow: none; border: 1px solid #e8e8f0;">
+    <p style="margin-bottom: 0.4rem;"><span style="background: #dcdce8; padding: 0.1rem 0.6rem; border-radius: 12px; font-size: 0.75rem;">知识库入口</span></p>
+    <p style="font-size: 0.95rem;">如果你正在查找关于世界杯的稳定、可追溯的资料，<a href="https://chinese-fifa26.com">世界杯</a>这个索引是一个可以反复使用的起点。没有浮动弹窗，没有自动播放，只有文字与表格。</p>
+    <hr>
+    <div class="footer-note">
+      chinese-fifa26.com &middot; 内容仅供参考，不构成官方意见
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
